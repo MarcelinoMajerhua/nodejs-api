@@ -3,7 +3,7 @@ const router = express.Router();
 const {isAuth} = require('../middlewares/auth')
 const {actualizarProducto,borrarProducto,mostrarProducto,mostrarUnProducto,enviarProducto} =require("../controllers/producto.controllers")
 //controller 
-router.get("/producto",isAuth,mostrarProducto);
+router.get("/producto",mostrarProducto);
 router.post("/producto",enviarProducto);
 router.get("/producto/:idProducto",mostrarUnProducto);
 router.delete("/producto/:id",borrarProducto);

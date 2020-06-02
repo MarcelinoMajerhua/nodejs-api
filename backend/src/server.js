@@ -3,18 +3,19 @@ const path = require('path');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const passport = require('passport');
+const cors = require('cors')
 
 //inicializando 
 const app = express();
 //poner las configuracion de passport 
-
+app.use(cors())
 //configurando 
 
-app.set('port',process.env.PORT || 3000);
+app.set('port',process.env.PORT || 3001);
 
 //middlerwares
-
-app.use(express.urlencoded({extended:false}));
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
 app.use(session({
     secret: 'backEND',
